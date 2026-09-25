@@ -29,7 +29,7 @@ sudo ufw enable
 
 # 3. 상세 상태 확인
 sudo ufw status verbose
-```  <-- 여기에 백틱 3개를 넣어서 첫 번째 블록을 닫아주세요!
+```
 
 - 내 IP 허용 후 방화벽 활성화 과정
 ```bash
