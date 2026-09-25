@@ -20,29 +20,33 @@
 #### ③ 리눅스 UFW 방화벽 설정 시 주의사항
 - **실수 방지 순서:** 방화벽을 켤 때(`sudo ufw enable`) 규칙을 먼저 등록하지 않으면 원격 SSH 접속이 차단되어 서버에서 튕겨 나가는 사고 발생 가능.
 - **안전한 실행 순서:**
-  ```bash
-  # 1. 내 IP를 SSH(22번) 허용 규칙으로 먼저 등록
-  sudo ufw allow from <내_공인_IP> to any port 22 proto tcp
+```bash
+# 1. 내 IP를 SSH(22번) 허용 규칙으로 먼저 등록
+sudo ufw allow from <내_공인_IP> to any port 22 proto tcp
 
-  # 2. 방화벽 활성화
-  sudo ufw enable
+# 2. 방화벽 활성화
+sudo ufw enable
 
-  # 3. 상세 상태 확인
-  sudo ufw status verbose
-  ```
+# 3. 상세 상태 확인
+sudo ufw status verbose
+```  <-- 여기에 백틱 3개를 넣어서 첫 번째 블록을 닫아주세요!
+
 - 내 IP 허용 후 방화벽 활성화 과정
-	```bash
+```bash
 ubuntu@ip-172-31-4-69:~$ sudo ufw status verbose
 Status: inactive
+
 ubuntu@ip-172-31-4-69:~$ sudo ufw allow from 116.120.81.242 to any port 22 proto tcp
 Rules updated
+
 ubuntu@ip-172-31-4-69:~$ sudo ufw enable
 Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
 Firewall is active and enabled on system startup
 ubuntu@ip-172-31-4-69:~$ sudo ufw status
 Status: active
 To                         Action      From
+--                         ------      ----
+22/tcp                     ALLOW       116.120.81.242            
+```
 
-22/tcp                     ALLOW       116.120.81.242  
-	```
-	
+
