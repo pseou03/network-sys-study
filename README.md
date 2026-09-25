@@ -30,3 +30,19 @@
   # 3. 상세 상태 확인
   sudo ufw status verbose
   ```
+- 내 IP 허용 후 방화벽 활성화 과정
+	```bash
+ubuntu@ip-172-31-4-69:~$ sudo ufw status verbose
+Status: inactive
+ubuntu@ip-172-31-4-69:~$ sudo ufw allow from 116.120.81.242 to any port 22 proto tcp
+Rules updated
+ubuntu@ip-172-31-4-69:~$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+ubuntu@ip-172-31-4-69:~$ sudo ufw status
+Status: active
+To                         Action      From
+
+22/tcp                     ALLOW       116.120.81.242  
+	```
+	
