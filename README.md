@@ -29,8 +29,7 @@
 
   # 3. 상세 상태 확인
   sudo ufw status verbose
-	```
-	```
+
 ubuntu@ip-172-31-4-69:~$ sudo ufw status verbose
 Status: inactive
 ubuntu@ip-172-31-4-69:~$ sudo ufw allow from 116.120.81.242 to any port 22 proto tcp
